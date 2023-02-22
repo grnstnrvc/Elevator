@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Elevator Example</title>
+  </head>
+  <body>
+    <h1>Elevator Example</h1>
+    <p>Click the button below to call the elevator to the 5th floor.</p>
+    <button onclick="callElevator(5)">Call Elevator to 5th Floor</button>
+    <p>Click the button below to call the elevator to the 3rd floor while it's stopped at the 5th floor.</p>
+    <button onclick="callElevator(3)">Call Elevator to 3rd Floor</button>
+    <script>
+    // Create an Elevator class
+     class Elevator {
+        constructor() {
+          this.currentFloor = 1;
+          this.stopped = true;
+          }
+
+    // Call the elevator to a floor
+     call(floor) {
+        console.log(`Elevator called to floor ${floor}`);
+         this.stopped = false;
+         this.goToFloor(floor);
+       }
+
+    // Go to a floor
+       goToFloor(floor) {
+        console.log(`Elevator moving to floor ${floor}`);
+         setTimeout(() => {
+          console.log(`Elevator arrived at floor ${floor}`);
+          this.currentFloor = floor;
+          this.stopped = true;
+       }, 2000);
+    }
+}
+
+     // Create an instance of the Elevator class
+       const elevator = new Elevator();
+
+    // Call the elevator to the 5th floor
+       elevator.call(5);
+
+    // Call the elevator to the 3rd floor while it's stopped at the 5th floor
+      setTimeout(() => {
+      elevator.call(3);
+     }, 5000);
+
+        // Call the elevator when the button is clicked
+      function callElevator(floor) {
+        elevator.call(floor);
+      }
+    </script>
+  </body>
+</html>
