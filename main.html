@@ -33,7 +33,7 @@
           console.log(`Elevator arrived at floor ${floor}`);
           this.currentFloor = floor;
           this.stopped = true;
-       }, 2000);
+       }, 2200);
     }
 }
 
@@ -46,7 +46,7 @@
     // Call the elevator to the 3rd floor while it's stopped at the 5th floor
       setTimeout(() => {
       elevator.call(3);
-     }, 5000);
+     }, 4500);
 
         // Call the elevator when the button is clicked
       function callElevator(floor) {
